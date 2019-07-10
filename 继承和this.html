@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>继承和this</title>
+</head>
+<body>
+  <script>
+    function JSClass(){
+      this.m_Text = 'division element';
+      this.m_Element = document.createElement("div");
+      this.m_Element.innerHTML = this.m_Text;
+      this.m_Element.addEventListener('click',this.func.bind(this));
+    }
+
+    JSClass.prototype.Render = function(){
+      document.body.appendChild(this.m_Element);
+    }
+
+    JSClass.prototype.func = function(){
+      alert(this.m_Text)
+    }
+
+    var jc = new JSClass();
+    jc.Render();
+    jc.func();
+  </script>
+</body>
+</html>
