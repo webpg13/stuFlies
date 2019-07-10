@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="msg"></h3>
+  <script>
+    // 创建一个WebSocket实例,括号中填的是连接服务器的ip地址
+    var ws = new WebSocket("ws://localhost:8080") ;
+    // 当连接被打开时,注册接收消息的处理函数
+    ws.onopen=function(event){
+      ws.onmessage = function(event){
+        console.log("事件被触发")
+        msg.innerHTML = event.data;
+      }
+    } 
+  </script>
+</body>
+</html>

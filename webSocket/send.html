@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="msg">
+  <button id="send">发送</button>
+  <script>
+    // 创建一个WebSocket实例,括号中填的是连接服务器的ip地址
+    var ws = new WebSocket("ws://localhost:8080")   
+    send.addEventListener('click',function(){
+      console.log(11);
+      // 如果输入框的值不为空
+      if(msg.value.trim()!==""){
+        // 就发送信息给服务器ws
+        ws.send(msg.value.trim());
+      }  
+    })
+    // 键盘事件
+    /* msg.addEventListener('keydown',function(e){
+      console.log(e);
+      if(msg.value.trim()!==""&&e.keyCode=="13"||e.code=='Backspace'){
+        wx.send(msg.value.trim());
+      }  
+    }) */
+  </script>
+</body>
+</html>
