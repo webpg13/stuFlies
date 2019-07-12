@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖</title>
+</head>
+<body style="height:2000px  ">
+  <script>
+    var timer;
+    window.onscroll = function(){
+      // 如果当前timer不为空,说明前面有一个等待的请求,还未发送.就停止前面的等待
+      if(timer!==undefined){
+        clearTimeout(timer);
+      }
+      // 再重新开始下一轮等待
+      timer=setTimeout(function(){
+        // 当200ms内,未发生滚动时,才发送正式的ajax请求
+        console.log("发送ajax请求,加载更多数据..")
+      },200)     
+    }
+  </script>
+</body>
+</html>

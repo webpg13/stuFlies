@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>节流</title>
+</head>
+<body>
+  <button id="btn">加载更多</button>
+  <script>
+    let canClick = true;
+    btn.onclick = function(){
+      if(canClick){
+        canClick = false;
+        console.log("发送ajax请求,加载更多数据...")
+        setTimeout(function(){
+          console.log("加载完成");
+          canClick=true;
+        },2000)
+      }
+    }
+  </script>
+</body>
+</html>
